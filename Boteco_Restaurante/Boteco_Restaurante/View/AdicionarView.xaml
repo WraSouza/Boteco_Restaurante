@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Boteco_Restaurante.View.AdicionarView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvm="clr-namespace:Boteco_Restaurante.ViewModel"
+    Title="Boteco Restaurante">
+
+    <ContentPage.BindingContext>
+        <mvvm:AdicionarViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Label
+                Margin="10,30,0,0"
+                FontSize="18"
+                Text="Selecione Uma Opção Para Cadastro"
+                TextColor="Black" />
+
+
+            <StackLayout
+                Padding="50"
+                Spacing="50"
+                VerticalOptions="CenterAndExpand">
+                <Button
+                    BackgroundColor="#3F3CE7"
+                    Command="{Binding AdicionarCategoriaCommand}"
+                    CornerRadius="10"
+                    Text="Categoria"
+                    TextColor="White" />
+
+                <Button
+                    BackgroundColor="#3F3CE7"
+                    Command="{Binding AbrirAdicionarProdutoViewCommand}"
+                    CornerRadius="10"
+                    Text="Produto"
+                    TextColor="White" />
+            </StackLayout>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

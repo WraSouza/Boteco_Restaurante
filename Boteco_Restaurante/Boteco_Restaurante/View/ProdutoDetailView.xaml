@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Boteco_Restaurante.View.ProdutoDetailView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvm="clr-namespace:Boteco_Restaurante.ViewModel"
+    Title="Detalhes do Produto">
+
+    <ContentPage.BindingContext>
+        <mvvm:ProdutoDetailViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+
+                <StackLayout>
+                    <Image HeightRequest="280" Source="{Binding Caminhoimagem}" />
+
+                    <Label
+                        FontSize="Large"
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding Nomeproduto}"
+                        TextColor="Black" />
+                </StackLayout>
+
+
+                <StackLayout HorizontalOptions="End" VerticalOptions="Start" Margin="0,0,20,0">
+                    <Image
+                        Margin="0,20,0,0"
+                        HeightRequest="25"
+                        Source="editar.png">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding HabilitarCamposCommand}" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Label HorizontalTextAlignment="Center" FontSize="10" Text="Editar Produto" />
+                </StackLayout>
+
+            </Grid>
+
+            <Entry
+                Placeholder="Informe Novo Nome do Produto"
+                Margin="10,60,10,0"
+                BackgroundColor="LightGray"
+                IsVisible="{Binding Setentryvisible}"
+                Text="{Binding Newname}" />
+
+            <Label
+                Margin="10,20,0,0"
+                FontSize="20"
+                Text="Categoria"
+                TextColor="Black" />
+
+            <Picker
+                Title="{Binding Categoria}"
+                Margin="10,0,10,0"
+                BackgroundColor="LightGray"
+                IsEnabled="{Binding Setpickerenable}"
+                ItemDisplayBinding="{Binding CategoriaNome}"
+                ItemsSource="{Binding Categorias}"
+                SelectedItem="{Binding Categoriaselecionada}" />
+
+            <Button
+                Margin="10,40,10,0"
+                BackgroundColor="#3F3CE7"
+                Command="{Binding AtualizarProdutoCommand}"
+                CornerRadius="10"
+                IsVisible="{Binding Setbuttonvisible}"
+                Text="Alterar"
+                TextColor="White" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

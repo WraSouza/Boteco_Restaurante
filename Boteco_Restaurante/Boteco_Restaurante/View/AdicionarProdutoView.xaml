@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Boteco_Restaurante.View.AdicionarProdutoView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvm="clr-namespace:Boteco_Restaurante.ViewModel"
+    Title="Adicionar Produto">
+
+    <ContentPage.BindingContext>
+        <mvvm:AdicionarProdutoViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Image
+                Aspect="Fill"
+                HeightRequest="280"
+                Source="{Binding CaminhoImagem}" />
+            <StackLayout
+                Padding="20"
+                HorizontalOptions="Center"
+                VerticalOptions="End">
+                <Image HeightRequest="30" Source="camera.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SelecionarImagem}" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label FontSize="10" Text="Selecionar Imagem" />
+            </StackLayout>
+
+            <StackLayout Padding="10">
+                <Entry Placeholder="Informe Nome do Produto" Text="{Binding Nomeproduto}" />
+
+                <Label
+                    Margin="0,20,0,0"
+                    FontSize="20"
+                    Text="Selecione Categoria" />
+
+                <Picker
+                    BackgroundColor="LightGray"
+                    ItemDisplayBinding="{Binding CategoriaNome}"
+                    ItemsSource="{Binding Categorias}"
+                    SelectedItem="{Binding Categoria}" />
+
+                <Button
+                    Margin="0,50,0,0"
+                    BackgroundColor="#2196f3"
+                    TextColor="White"
+                    Command="{Binding CadastrarProdutoCommand}"
+                    CornerRadius="10"
+                    Text="Cadastrar" />
+            </StackLayout>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
