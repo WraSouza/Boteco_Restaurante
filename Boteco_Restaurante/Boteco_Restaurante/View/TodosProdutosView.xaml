@@ -10,90 +10,90 @@
         <mvvm:TodosProdutosViewModel />
     </ContentPage.BindingContext>
     <StackLayout>
-        <CollectionView ItemsSource="{Binding Categorias}"
-                        HeightRequest="100"
-                        x:Name="collectionViewUp"
-                        Margin="10,10,0,0">
+        <CollectionView
+            x:Name="collectionViewUp"
+            Margin="10,10,0,0"
+            HeightRequest="100"
+            ItemsSource="{Binding Categorias}">
             <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Horizontal" HorizontalItemSpacing="5"/>
+                <GridItemsLayout HorizontalItemSpacing="5" Orientation="Horizontal" />
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Padding="0" Spacing="0">
-                        <Button Text="{Binding CategoriaNome}" CornerRadius="10" 
-                                Command="{Binding Path=BindingContext.BuscarProdutosCategoriaSelecionadaCommand, Source={x:Reference collectionViewUp}}" CommandParameter="{Binding .}" />
-                        <!--<Label Text="{Binding CategoriaNome}" BackgroundColor="Green" TextColor="White"/>-->
-                        <!--<Frame BackgroundColor="Yellow" IsClippedToBounds="True" HeightRequest="8">
-                            <Label Text="{Binding CategoriaNome}" FontSize="10" VerticalTextAlignment="Start"/>
-                        </Frame>-->
+                        <Button
+                            Command="{Binding Path=BindingContext.BuscarProdutosCategoriaSelecionadaCommand, Source={x:Reference collectionViewUp}}"
+                            CommandParameter="{Binding .}"
+                            CornerRadius="10"
+                            Text="{Binding CategoriaNome}" />
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        
-        <!--Teste-->
+
+
         <RefreshView
-    Command="{Binding AtualizarTelaCommand}"
-    IsRefreshing="{Binding Isrefreshing}"
-    RefreshColor="OrangeRed">
+            Command="{Binding AtualizarTelaCommand}"
+            IsRefreshing="{Binding Isrefreshing}"
+            RefreshColor="OrangeRed">
 
-    <CollectionView
-        x:Name="collectionView"
-        Margin="20,0,20,0"
-        HeightRequest="800"
-        IsGrouped="False"
-        ItemsSource="{Binding Produtos}">
-        <CollectionView.ItemsLayout>
-            <GridItemsLayout
-                HorizontalItemSpacing="15"
-                Orientation="Vertical"
-                Span="2"
-                VerticalItemSpacing="15" />
-        </CollectionView.ItemsLayout>
-        <CollectionView.EmptyView>
-            <ContentView>
-                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                    <Label
-                        FontFamily="MontserratBold"
-                        FontSize="15"
-                        Text="Não Há Produtos Cadastrados No Momento"
-                        TextColor="Black" />
-                </StackLayout>
-            </ContentView>
-        </CollectionView.EmptyView>
+            <CollectionView
+                x:Name="collectionView"
+                Margin="20,0,20,0"
+                HeightRequest="800"
+                IsGrouped="False"
+                ItemsSource="{Binding Produtos}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout
+                        HorizontalItemSpacing="15"
+                        Orientation="Vertical"
+                        Span="2"
+                        VerticalItemSpacing="15" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.EmptyView>
+                    <ContentView>
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label
+                                FontFamily="MontserratBold"
+                                FontSize="15"
+                                Text="Não Há Produtos Cadastrados No Momento"
+                                TextColor="Black" />
+                        </StackLayout>
+                    </ContentView>
+                </CollectionView.EmptyView>
 
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
 
-                <Grid RowDefinitions="150" RowSpacing="20">
+                        <Grid RowDefinitions="150" RowSpacing="20">
 
-                    <Image
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        Aspect="Fill"
-                        Source="{Binding CaminhoImagem}">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding Path=BindingContext.AbrirProdutoDetailViewCommand, Source={x:Reference collectionView}}" CommandParameter="{Binding .}" />
-                        </Image.GestureRecognizers>
-                    </Image>
+                            <Image
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Aspect="Fill"
+                                Source="{Binding CaminhoImagem}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.AbrirProdutoDetailViewCommand, Source={x:Reference collectionView}}" CommandParameter="{Binding .}" />
+                                </Image.GestureRecognizers>
+                            </Image>
 
-                    <Label
-                        Grid.Row="1"
-                        Grid.Column="0"
-                        FontSize="15"
-                        HorizontalTextAlignment="Center"
-                        Text="{Binding ProdutoNome}"
-                        TextColor="Black" />
-
-
-
-                </Grid>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontSize="15"
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding ProdutoNome}"
+                                TextColor="Black" />
 
 
-    </CollectionView>
-</RefreshView>
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+
+            </CollectionView>
+        </RefreshView>
     </StackLayout>
 
     <!--<RefreshView
