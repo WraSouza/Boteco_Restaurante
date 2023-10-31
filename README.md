@@ -27,6 +27,8 @@ A aplicação não necessita procedimentos especiais. Basta o dispositivo estar 
 
 Ao iniciar o aplicativo, o usuário tem acesso à tela onde é possível visualizar os produtos com as categorias na parte superior da tela. A primeira opção é possível visualizar o todo e clicando na categoria desejada poderá visualizar produtos específico da categoria
 
+![information (1)](https://github.com/WraSouza/Boteco_Restaurante/assets/15219047/d8099d2f-708f-46eb-a472-ad26e51c5ae8) Antes de cada ação que seja necessário uma conexão com a Internet, é verificado se a conexão está funcionando. Caso a mesma não esteja, é informado ao usuário que a conexão está com problema.
+
 ![Tela Inicial](https://github.com/WraSouza/Boteco_Restaurante/assets/15219047/b4b9778a-01e7-4816-85aa-84d788563c89)
 
 Na lateral da tela, o usuário terá acesso à tela onde poderá cadastrar um produto ou uma categoria
